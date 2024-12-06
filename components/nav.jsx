@@ -1,23 +1,38 @@
+import Link from "next/link";
 
-const Nav = ({ containerStyles, linkStyles, links }) => {
-   return (
-      <>
-         <div className={`${containerStyles}`}>
-            {links.map((link, index) => {
-               return (
-                  <li
-                     key={index}
-                     offset={link.offset}
-                     duration={500}
-                     className={`${linkStyles}`}
-                  >
-                     <a href={link.url}>{link.name}</a>
-                  </li>
-               )
-            })}
-         </div>
-      </>
-   );
+const links = [
+  {
+    path: "/",
+    pathname: "Home"
+  },
+  {
+    path: "/",
+    pathname: "Find Hotel"
+  },
+  {
+    path: "/",
+    pathname: "About Us"
+  },
+  {
+    path: "/",
+    pathname: "Contact Us"
+  },
+]
+
+const Nav = ({ containerStyles, listStyles }) => {
+  return (
+    <nav className={`${containerStyles}`}>
+      <ul className={`${listStyles}`}>
+        {links.map((link, index) => {
+          return (
+            <li key={index}>
+              <Link href={link.path}>{link.pathname}</Link>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+  );
 };
 
 export default Nav;

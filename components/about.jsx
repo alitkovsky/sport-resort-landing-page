@@ -1,45 +1,112 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { fadeIn } from "../variants";
+import { useInView } from "react-intersection-observer";
 import { Button } from "@/components/ui/button";
-import { RiPhoneFill, RiArrowRightLine } from "react-icons/ri";
+import { useMediaQuery } from "react-responsive";
+
+import Stats from "@/components/stats";
 
 const About = () => {
-   return (
-      <section className="about mt-[80px] xl:mt-[200px] relative z-20">
-         <div className="container mx-auto xl:px-0">
-            <div className="flex flex-col xl:flex-row text-center xl:text-left justify-between items-center gap-8 xl:gap-[74px]">
-               <div className="about__text flex-1 order-2 xl:order-none max-w-xl xl:max-w-[410px] flex flex-col items-center xl:items-start gap-8">
-                  <h2 className="h2">
-                     Спортивный центр "Стимул"
-                  </h2>
-                  <p>
-                     это частный отель, созданный для популяризации спорта и здорового образа жизни. Уже более 15 лет мы усердно работаем над улучшением предлагаемых услуг, увеличиваем количество спортивных объектов и уровень компетентности наших специалистов. Расположение в уединенном месте, вдали от дорог и шумных мест, позволяет нашим гостям полноценно отдохнуть, восстановить своё здоровье и улучшить свои спортивные показатели.
-                  </p>
+   const isMobile = useMediaQuery({
+      query: "(max-width: 768px)",
+   });
 
-                  <div className="flex items-center justify-center xl:justify-start gap-4">
-                     <div className="bg-accent/15 w-[93px] h-[93px] rounded-full flex justify-center items-center">
-                        <RiPhoneFill className="text-accent text-4xl" />
-                     </div>
-                     <dix className="text-left">
-                        <div className="text-2xl font-bold">978 844 19 28</div>
-                        <div>Всегда рады помочь</div>
-                     </dix>
-                  </div>
-                  {/* <Button className="mx-auto xl:mx-0">
-                     Get free estimation
-                     <RiArrowRightLine className="text-accent" />
-                  </Button> */}
+   const [ref, inView] = useInView({
+      threshold: !isMobile ? 0.5 : null,
+   });
+
+   const slideInFromLeft = {
+      hidden: {
+        x: -200,
+        opacity: 0
+      },
+      show: {
+        x: 0,
+        opacity: 1,
+        transition: {
+          type: "fadeIn",
+          duration: 1,
+          delay: 0.3
+        }
+      },
+      exit: {
+         x: -200,
+         poacity: 0,
+         transition: {
+            duration: 1,
+            delay: 0.4
+         }
+      }
+    };
+
+    const slideInFromRight = {
+      hidden: {
+        x: 200,
+        opacity: 0
+      },
+      show: {
+        x: 0,
+        opacity: 1,
+        transition: {
+          type: "fadeIn",
+          duration: 1,
+          delay: 0.7,
+          stiffness: 100
+        }
+      },
+      exit: {
+         x: 200, // move back to the right on exit
+         opacity: 0,
+         transition: {
+           duration: 1, // smooth exit over 1 second
+           delay: 0.3 // delay before starting the exit animation
+         }
+       }
+    };
+
+  return (
+   <section className="py-12 xl:pt-0 xl:pb-24" ref={ref}>
+      <div className="container mx-auto">
+         <div className="flex flex-col xl:flex-row">
+            <motion.div
+               className="flex-1 relative"
+               variants={slideInFromLeft}
+               initial="hidden"
+               whileInView={"show"}
+               viewport={{ once: false, amount: 0.4 }}
+            >
+               <Image
+                  src={"/about/img2.png"}
+                  width={559}
+                  height={721}
+                  alt=""
+               />
+            </motion.div>
+            <motion.div
+               className="xl:max-w-[470px]"
+               variants={slideInFromRight}
+               initial="hidden"
+               whileInView={"show"}
+               viewport={{ once: false, amount: 0.4 }}
+            >
+               <h2 className="h2 mb-[38px]">About us</h2>
+               <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga mollitia laborum in expedita similique dolorem, ratione recusandae ea dolorum laudantium nostrum inventore magni minus quidem distinctio quisquam porro alias incidunt?
+               </p>
+               <div className="my-5 xl:my-10 min-h-[35px]">
+                  {inView && <Stats />}
                </div>
-               <div className="about__img order-1 xl:order-none max-w-[453px] mx-auto xl:max-w-none xl:mx-0">
-                  <Image
-                     src="/about/img.png"
-                     width={653}
-                     height={700}
-                     alt=""
-                  />
-               </div>
-            </div>
+               <p className="mb-10">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga mollitia laborum in expedita similique dolorem, ratione recusandae ea dolorum laudantium nostrum inventore magni minus quidem distinctio quisquam porro alias incidunt?
+               </p>
+               <Button variant="accent">Explore More</Button>
+            </motion.div>
          </div>
-      </section>
+      </div>
+   </section>
   );
 };
 

@@ -10,9 +10,8 @@ module.exports = {
   prefix: "",
   theme: {
     container: {
-      padding: {
-        DEFAULT: "15px"
-      },
+      center: true,
+      padding: "0.9375rem",
     },
     screens: {
       sm: "640px",
@@ -20,14 +19,21 @@ module.exports = {
       lg: "960px",
       xl: "1200px",
     },
-    fontFamily: {
-      primary: "var(--font-notoSerifDisplay)",
-      secondary: "var(--font-jost)",
-      logo: "var(--font-raleway)",
-    },
-    backgroundImage: {
-      hero: "url(/hero/bg.jpg)",
-      grid: "url(/grid.png)",
+    colors: {
+      white: "#ffffff",
+      black: "#273029",
+      soft_green: {
+        DEFAULT: "#85c7dc",
+        secondary: "#f3f9fb",
+      },
+      grey: {
+        DEFAULT: "#888888",
+        secondary: "#f8f8f8",
+      },
+      orange: "#f2994a",
+      outline: "#f1f1f1",
+      pink: "#f3d1d7",
+      body: "#e5e5e5",
     },
     extend: {
       colors: {
@@ -37,13 +43,13 @@ module.exports = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#28292c",
-          hover: "#343e4a",
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
         },
-        secondary: "#4d5053",
-        green: "#1d4b3b",
-        beige: "#e6e3dc",
-        orange: "#e7a572",
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
@@ -53,9 +59,8 @@ module.exports = {
           foreground: "hsl(var(--muted-foreground))",
         },
         accent: {
-          DEFAULT: "#eb5633",
-          secondary: "#f4f0ec",
-          hover: "#b88c5d",
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -85,6 +90,10 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+    },
+    backgroundImage: {
+      hero: 'url(/hero/bg-1.jpg)',
+      hero2: 'url(/hero/bg-1.jpg)',
     },
   },
   plugins: [require("tailwindcss-animate")],

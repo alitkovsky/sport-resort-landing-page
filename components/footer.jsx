@@ -1,106 +1,67 @@
-import Link from "next/link";
-import Image from "next/image";
-import Socials from "@/components/socials";
+"use client";
 
-const Footer = ({ containerStyles, linkStyles, links }) => {
-   return (
-      <section className="footer mt-[80px] xl:mt-[150px] relative z-20">
-         <div className="container mx-auto px-0">
-            <div className="flex flex-col xl:flex-row xl:gap-[100px] xl:mb-[150px]">
-               <div className="footer__item w-full max-w-[400px] mx-auto mb-8 text-center xl:text-left">
-                  <Link
-                     href={"/"}
-                     className="flex justify-center xl:justify-start mb-8"
-                  >
-                     <Image
-                        src="/logo.svg"
-                        width={177}
-                        height={50}
-                        alt="logo"
-                     />
-                  </Link>
-                  <p className="mb-8 text-xl">
-                     It is a long established fact that a reader will be distracted lookings.
-                  </p>
-                  <Socials
-                     containerStyles="text-primary flex gap-[54px] justify-center xl:justify-start"
-                  />
-               </div>
-               <div className="flex-1 flex flex-col xl:flex-row text-center xl:text-left gap-12 xl:gap-[100px] xl:justify-end">
-                  <div className="footer__item">
-                     <h3 className="h3 mb-3">
-                        Pages
-                     </h3>
-                     <ul className="flex flex-col gap-4">
-                        {links.map((link, index) => {
-                           return (
-                              <li key={index}>
-                                 <Link
-                                    href={link.url}
-                                    className={`${linkStyles}`}
-                                 >
-                                    {link.name}
-                                 </Link>
-                              </li>
-                           );
-                        })}
-                     </ul>
-                  </div>
-                  <div className="footer__item">
-                     <h3 className="h3 mb-3">
-                        Services
-                     </h3>
-                     <ul className="flex flex-col gap-4">
-                        <li>
-                           <Link
-                              href={"/"}
-                              className={""}
-                           >
-                              Kitchen
-                           </Link>
-                        </li>
-                        <li>
-                           <Link
-                              href={"/"}
-                              className={""}
-                           >
-                              Living Areas
-                           </Link>
-                        </li>
-                        <li>
-                           <Link
-                              href={"/"}
-                              className={""}
-                           >
-                              Bathroom
-                           </Link>
-                        </li>
-                        <li>
-                           <Link
-                              href={"/"}
-                              className={""}
-                           >
-                              Bedroom
-                           </Link>
-                        </li>
-                     </ul>
-                  </div>
-                  <div className="footer__item max-w-[260px] mx-auto xl:mx-0">
-                     <h3 className="h3 mb-3">Contact</h3>
-                     <div className="flex flex-col gap-6 text-[20px]">
-                        <p>55 East Birchwood Ave. Brooklyn, New York 11201</p>
-                        <p>contact@interno.com</p>
-                        <p>(123) 456 - 7890</p>
-                     </div>
-                  </div>
-               </div>
+import Image from "next/image";
+import Link from "next/link";
+import Socials from "@/components/socials";
+import Nav from "@/components/nav";
+import { motion } from "framer-motion";
+import { fadeIn } from "../variants";
+
+const Footer = () => {
+  return (
+    <footer className="bg-soft_green-secondary relative pt-12 xl:pt-0">
+      <div className="container mx-auto">
+        <motion.div
+          variants={fadeIn("up", 0.4)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: false, amount: 0 }}
+        >
+          <div className="flex flex-col xl:flex-row bg-white p-8 rounded-xl min-h-[394px] xl:p-20 xl:-translate-y-36 xl:gap-x-12">
+            <div className="xl:w-[470px] mb-6 xl:mb-0">
+              <Link href='/'>
+                <Image
+                  src="/footer/logo.svg"
+                  width={80}
+                  height={36}
+                  alt=""
+                  className="mb-2"
+                />
+              </Link>
+              <p className="text-black leading-9">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam corrupti neque illum harum pariatur distinctio.
+              </p>
             </div>
-         </div>
-         <p className="footer__copyright text-center text-lg py-10 bg-beige xl:border-t">
-            Copyright © Interno 2024. All rights reserved.
-         </p>
-      </section>
-   );
-};
+            <div className="flex xl:gap-x-16 xl:ml-32">
+              <div className="flex-1">
+                <h4 className="h4 mb-6">Navigation</h4>
+                <Nav
+                  containerStyles=""
+                  listStyles="flex flex-col gap-y-6 text-lg"
+              />
+              </div>
+              <div className="flex-1 xl:w-[300px]">
+                <h4 className="h4 mb-6">Contact Us</h4>
+                <ul className="flex flex-col gap-y-6 text-lg">
+                  <li>+12 345 678901</li>
+                  <li>info@stimul-hotel.com</li>
+                  <li>stimul-hotel.com</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+        <div className="flex flex-col xl:flex-row xl:justify-between py-12 xl:-mt-32">
+          <p className="text-black font-semibold text-center mb-4 xl:mb-0">
+            Copyright &copy; 2024. All rights reserved.
+          </p>
+          <Socials
+            containerStyles="flex gap-x-4 text-black mx-auto xl:mx-0"
+          />
+        </div>
+      </div>
+    </footer>
+  )
+}
 
 export default Footer;

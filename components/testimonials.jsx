@@ -1,128 +1,79 @@
 "use client";
 
-import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { fadeIn } from "../variants";
 
-const TestimonialsSwiper = () => {
+const testimonialsData = [
+   {
+      img: "/testimonials/img-1.png",
+      message:
+         "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla iste, fugiat magni laboriosam repellendus maxime voluptatum, ad atque obcaecati sapiente consequatur quos, minus pariatur corrupti beatae! Suscipit iste inventore assumenda iure facilis, aspernatur itaque aliquid.",
+      authorName: "Rober Rene",
+      location: "Singapore",
+   },
+   {
+      img: "/testimonials/img-2.png",
+      message:
+         "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla iste, fugiat magni laboriosam repellendus maxime voluptatum, ad atque obcaecati sapiente consequatur quos, minus pariatur corrupti beatae! Suscipit iste inventore assumenda iure facilis, aspernatur itaque aliquid.",
+      authorName: "Rober Rene",
+      location: "Singapore",
+   }
+];
 
-   return (
-      <section className="testimonial mt-[80px] xl:mt-[200px] relative z-20">
-         <div className="testimonial__bg container mx-auto bg-accent-secondary rounded-[70px] px-6">
-            <div className="flex flex-col items-center pt-[88px] pb-[110px]">
-               <h2 className="testimonial__title h2 mb-9 text-center">What clients say</h2>
-
-               <div className="w-full">
-                  <Swiper
-                     className="testimonial__slider swiper h-[400px]"
-                     loop={true}
-                     cssMode={true}
-                     pagination={{
-                        el: ".swiper-pagination",
-                        clickable: true,
-                     }}
-                     modules={[Pagination]}
-                     slidesPerView={3}
-                     spaceBetween={20}
-                     breakpoints={{
-                        320: {
-                           slidesPerView: 1,
-                        },
-                        960: {
-                           slidesPerView: 2,
-                        },
-                        1200: {
-                           slidesPerView: 3,
-                        },
-                           }}
-                     >
-                     <div className="swiper-wrapper">
-                        <SwiperSlide className="swiper-slide">
-                           <div className="testimonial__item w-full max-w-[450px] h-[340px] bg-white rounded-[30px] flex flex-col justify-center p-9 mx-auto">
-                              <div className="flex gap-4 mb-6">
-                                 <Image
-                                    src="/testimonial/01.png"
-                                    width={77}
-                                    height={77}
-                                    alt=""
-                                 />
-                                 <div>
-                                    <h3 className="h3">Nattasha Mith</h3>
-                                    <div>Greenville, USA</div>
-                                 </div>
-                              </div>
-                              <p>
-                                 Lorem Ipsum is simply dummy text of the typesetting industry. Ipsum has been.
-                              </p>
-                           </div>
-                        </SwiperSlide>
-                        <SwiperSlide className="swiper-slide">
-                           <div className="testimonial__item w-full max-w-[450px] h-[340px] bg-white rounded-[30px] flex flex-col justify-center p-9 mx-auto">
-                              <div className="flex gap-4 mb-6">
-                                 <Image
-                                    src="/testimonial/02.png"
-                                    width={77}
-                                    height={77}
-                                    alt=""
-                                 />
-                                 <div>
-                                    <h3 className="h3">Jessica White</h3>
-                                    <div>Oak Ridge, USA</div>
-                                 </div>
-                              </div>
-                              <p>
-                                 Lorem Ipsum is simply dummy text of the typesetting industry. Ipsum has been.
-                              </p>
-                           </div>
-                        </SwiperSlide>
-                        <SwiperSlide className="swiper-slide">
-                           <div className="testimonial__item w-full max-w-[450px] h-[340px] bg-white rounded-[30px] flex flex-col justify-center p-9 mx-auto">
-                              <div className="flex gap-4 mb-6">
-                                 <Image
-                                    src="/testimonial/03.png"
-                                    width={77}
-                                    height={77}
-                                    alt=""
-                                 />
-                                 <div>
-                                    <h3 className="h3">Mike Davis</h3>
-                                    <div>Berlin, Germany</div>
-                                 </div>
-                              </div>
-                              <p>
-                                 Lorem Ipsum is simply dummy text of the typesetting industry. Ipsum has been.
-                              </p>
-                           </div>
-                        </SwiperSlide>
-                        <SwiperSlide className="swiper-slide">
-                           <div className="testimonial__item w-full max-w-[450px] h-[340px] bg-white rounded-[30px] flex flex-col justify-center p-9 mx-auto">
-                              <div className="flex gap-4 mb-6">
-                                 <Image
-                                    src="/testimonial/04.png"
-                                    width={77}
-                                    height={77}
-                                    alt=""
-                                 />
-                                 <div>
-                                    <h3 className="h3">Olivia Wilson</h3>
-                                    <div>Blue Ridge, France</div>
-                                 </div>
-                              </div>
-                              <p>
-                                 Lorem Ipsum is simply dummy text of the typesetting industry. Ipsum has been.
-                              </p>
-                           </div>
-                        </SwiperSlide>
+const Testimonials = () => {
+  return (
+    <motion.section
+      className="bg-soft_green xl:h-[880px]"
+      variants={fadeIn("up", 0.2)}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: false, amount: 0 }}
+   >
+      <motion.div
+         className="container mx-auto"
+         variants={fadeIn("up", 0.4)}
+         initial="hidden"
+         whileInView="show"
+         viewport={{ once: false, amount: 0 }}
+      >
+         <Swiper
+            modules={[Pagination]}
+            pagination={{ clickable: true }}
+            className="xl:h-[680px] overflow-hidden"
+         >
+            {testimonialsData.map((slide, index) => {
+               return (
+                  <SwiperSlide key={index}>
+                     <div className="grid grid-cols-1 xl:grid-cols-2 py-12 xl:py-24">
+                        <Image
+                           src={slide.img}
+                           width={470}
+                           height={470}
+                           alt=""
+                           className="hidden xl:flex"
+                        />
+                        <div className="flex-1 bg-white/20 text-white p-12">
+                           <p className="text-lg leading-9 mb-8">
+                              {slide.message}
+                           </p>
+                           <p className="text-xl font-bold">
+                              {slide.authorName}
+                           </p>
+                           <p>{slide.location}</p>
+                        </div>
                      </div>
-                     <div className="swiper-pagination"></div>
-                  </Swiper>
-               </div>
-            </div>
-         </div>
-      </section>
+                  </SwiperSlide>
+               )
+            })}
+         </Swiper>
+      </motion.div>
+    </motion.section>
   );
 };
 
-export default TestimonialsSwiper;
+export default Testimonials;

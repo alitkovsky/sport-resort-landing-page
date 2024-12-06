@@ -64,42 +64,30 @@
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
   }
-}
+};
 
 @layer base {
+  * {
+    @apply border-border;
+  }
   body {
-    @apply font-secondary text-[22px] text-secondary bg-beige;
+    @apply bg-body text-grey leading-8;
   }
-
-  a {
-    @apply text-[20px] hover:text-accent transition-all duration-300;
-  }
-
   h1, h2, h3, h4, h5, h6 {
-    @apply font-primary text-primary font-semibold;
+    @apply text-black font-bold;
   }
-
-  .h1 {
-    @apply text-[74px] lg:text-[84px] leading-none;
-  }
-
   .h2 {
-    @apply text-[50px] leading-tight;
+    @apply text-[2rem];
   }
-
-  .btn {
-    @apply h-[75px] px-[30px] transition-all duration-300 text-beige rounded-[18px] flex items-center gap-2;
+  .h3 {
+    @apply text-2xl;
   }
-
-  .btn-primary {
-    @apply bg-primary hover:bg-primary-hover;
-  }
-
-  .btn-accent {
-    @apply bg-accent hover:bg-accent-hover;
-  }
-
-  .swiper .swiper-pagination-bullet {
-    @apply bg-primary
+  .h4 {
+    @apply text-xl;
   }
 }
+
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets
+  .swiper-pagination-bullet {
+    @apply bg-white;
+  }

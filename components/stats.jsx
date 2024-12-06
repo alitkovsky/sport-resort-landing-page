@@ -1,28 +1,50 @@
+"use client";
+
+import CountUp from "react-countup";
+
+const statsData = [
+  {
+    value: 1.2,
+    type: "Hotels",
+    unit: "k"
+  },
+  {
+    value: 4.8,
+    type: "Rooms",
+    unit: "k"
+  },
+  {
+    value: 186,
+    type: "Countries",
+    unit: null
+  }
+];
+
 const Stats = () => {
-   return (
-      <section className="stats mt-[80px] xl:mt-[150px] relative z-20 bg-beige py-[80px] xl:py-[150px]">
-         <div className="container mx-auto">
-            <div className="grid grid-col-1 xl:grid-col-4 gap-12">
-               <div className="stats__item text-center xl:border-r xl:border-accent">
-                  <h3 className="h1 font-primary text-accent">12</h3>
-                  <p>Years Of Eperiments</p>
-               </div>
-               <div className="stats__item text-center xl:border-r xl:border-accent">
-                  <h3 className="h1 font-primary text-accent">85</h3>
-                  <p>Projects Completed</p>
-               </div>
-               <div className="stats__item text-center xl:border-r xl:border-accent">
-                  <h3 className="h1 font-primary text-accent">15</h3>
-                  <p>Active Projects</p>
-               </div>
-               <div className="stats__item text-center xl:border-r xl:border-accent">
-                  <h3 className="h1 font-primary text-accent">95</h3>
-                  <p>Happy Customers</p>
-               </div>
+  return (
+    <div className="flex flex-col xl:flex-row gap-x-8 gap-y-4 my-10">
+      {statsData.map((item, index) => {
+        return (
+          <div key={index} className="flex">
+            <div className="flex items-baseline gap-x-2">
+              <h3 className="h3 text-soft_green">
+                <CountUp
+                  start={0}
+                  end={item.value}
+                  decimals={item.value % 1 !== 0 ? 1 : 0}
+                  duration={6}
+                />
+                <span>{item.unit}</span>
+              </h3>
+              <div className="text-black font-semibold">
+                {item.type}
+              </div>
             </div>
-         </div>
-      </section>
-   );
+          </div>
+        )
+      })}
+    </div>
+  );
 };
 
 export default Stats;

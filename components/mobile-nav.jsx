@@ -1,57 +1,39 @@
 "use client";
-
-import React, { useState } from "react";
-import { RiMenu4Line, RiMenuLine } from "react-icons/ri";
-import {Link as ScrollLink} from "react-scroll";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Menu } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 
-const MobileNav = ({ containerStyles, linkStyles, links }) => {
-   const [isOpen, setIsOpen] = useState(false);
+import Nav from "@/components/nav";
+import Socials from "@/components/socials";
 
+const MobileNav = () => {
   return (
-   <div className={`${containerStyles}`}>
-      <div
-         className="cursor-pointer outline-none"
-         onClick={() => setIsOpen(!isOpen)}
-      >
-         <RiMenu4Line className="text-3xl transition-all duration-300" />
-      </div>
-      <aside
-         className={`${
-            isOpen ? "right-0" : "-right-full"
-         } bg-beige fixed z-20 w-full t-10 top-[90px] bottom-0 transition-all duration-500`}
-      >
-         <div className="container flex flex-col justify-between mx-auto">
-            <ul className="flex flex-col gap-y-4">
-               {links.map((link, index) => {
-                  return (
-                     <li
-                        key={index}
-                        offset={link.offset}
-                        onClick={() => setIsOpen(false)}
-                        className={`${linkStyles}`}
-                     >
-                        <a href={link.url}>{link.name}</a>
-                     </li>
-                  );
-               })}
-            </ul>
-            {/* <ScrollLink
-               to="reservation"
-               smooth
-               offset={-150}
-            >
-               <Button
-                  variant="outline"
-               >
-                  Book a table
-               </Button>
-            </ScrollLink> */}
-         </div>
-      </aside>
-   </div>
+    <Sheet>
+      <SheetTrigger>
+        <Menu size={36} className="text-white" />
+      </SheetTrigger>
+      <SheetContent side="left">
+        <div className="flex flex-col justify-between h-svh p-12">
+          <Link href="/" className="mb-24">
+            <Image
+              src="/header/stimul-logo.svg"
+              width={300}
+              height={89}
+              alt=""
+              priority
+            />
+          </Link>
+          <Nav
+            containerStyles="text-black"
+            listStyless="flex flex-col gap-y-6 text-xl"
+          />
+          <div>
+            <Socials containerStyles="flex gap-x-4 text-black" />
+          </div>
+        </div>
+      </SheetContent>
+    </Sheet>
   );
 };
 
