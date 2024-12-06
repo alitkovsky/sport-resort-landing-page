@@ -4,7 +4,7 @@ import Featured from "@/components/featured";
 import About from "@/components/about";
 import Recommendation from "@/components/recommendation";
 import Find from "@/components/find";
-import Testimonials from "@/components/Testimonials";
+import Testimonials from "@/components/testimonials";
 import Footer from "@/components/footer";
 
 export default function Home() {
