@@ -15,18 +15,7 @@ import GuestSelect from "@/components/guest-select";
 const SearchBox = () => {
   return (
     <motion.div
-      className="
-        flex
-        flex-col
-        w-full
-        max-w-[488px]
-        max-h-max
-        bg-white
-        border
-        border-outline
-        rounded-[20px]
-        p-10
-      "
+      className="search-box backdrop-blur-lg flex flex-col w-full max-w-[488px] max-h-max rounded-[20px] p-10"
       variants={fadeIn("up", 0.2)}
       initial="hidden"
       whileInView={"show"}
@@ -36,10 +25,10 @@ const SearchBox = () => {
         <Label htmlFor="destination">Where are you going?</Label>
         <div className="flex relative items-center mb-[1.25rem]">
           <Input placeholder="try Singapore" id="destination" />
-          <MapPin size={24} className="absolute right-6 text-black" />
+          <MapPin size={24} className="absolute right-6 text-muted-foreground" />
         </div>
 
-        <div className="felx flex-col xl:flex-row gap-x-[30px] gap-y-5 xl:gap-y-0">
+        <div className="flex flex-col xl:flex-row gap-x-[30px] gap-y-5 xl:gap-y-0">
           <div className="flex flex-col flex-1">
             <Label>Check in</Label>
             <DatePicker />

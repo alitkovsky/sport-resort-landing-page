@@ -4,20 +4,25 @@ import Image from "next/image";
 import Link from "next/link";
 import Socials from "@/components/socials";
 import Nav from "@/components/nav";
+import Waves from "@/components/waves";
 import { motion } from "framer-motion";
-import { fadeIn } from "../variants";
+import { fadeIn } from "@/variants";
 
 const Footer = () => {
   return (
-    <footer className="bg-soft_green-secondary relative pt-12 xl:pt-0">
-      <div className="container mx-auto">
-        <motion.div
-          variants={fadeIn("up", 0.4)}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: false, amount: 0 }}
+    <footer className="bg-green w-full overflow-hidden">
+      <div className="bg-shore h-[523px]">
+      <Waves />
+      </div>
+      <div className="section">
+        <div
+          // variants={fadeIn("up", 0.4)}
+          // initial="hidden"
+          // whileInView="show"
+          // viewport={{ once: false, amount: 0 }}
+          className="grid-cols-subgrid col-span-12"
         >
-          <div className="flex flex-col xl:flex-row bg-white p-8 rounded-xl min-h-[394px] xl:p-20 xl:-translate-y-36 xl:gap-x-12">
+          <div className="flex flex-col xl:flex-row rounded-xl min-h-[394px]">
             <div className="xl:w-[470px] mb-6 xl:mb-0">
               <Link href='/'>
                 <Image
@@ -28,7 +33,7 @@ const Footer = () => {
                   className="mb-2"
                 />
               </Link>
-              <p className="text-black leading-9">
+              <p className="text-white leading-9">
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam corrupti neque illum harum pariatur distinctio.
               </p>
             </div>
@@ -50,13 +55,13 @@ const Footer = () => {
               </div>
             </div>
           </div>
-        </motion.div>
-        <div className="flex flex-col xl:flex-row xl:justify-between py-12 xl:-mt-32">
-          <p className="text-black font-semibold text-center mb-4 xl:mb-0">
+        </div>
+        <div className="grid-cols-subgrid col-span-12 grid py-12">
+          <p className="col-span-6 text-white font-semibold">
             Copyright &copy; 2024. All rights reserved.
           </p>
           <Socials
-            containerStyles="flex gap-x-4 text-black mx-auto xl:mx-0"
+            containerStyles="col-span-6 flex gap-x-4 text-white justify-self-end xl:mx-0"
           />
         </div>
       </div>

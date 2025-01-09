@@ -6,7 +6,7 @@ import "swiper/css"
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { fadeIn } from "../variants";
+import { fadeIn } from "@/variants";
 
 const recommendations = [
    {
@@ -70,7 +70,7 @@ const Recommendation = () => {
          >
             {recommendations.map((item, index) => {
                return (
-                  <SwiperSlide key={index}>
+                  <SwiperSlide key={index} className="z-0">
                      <div className="flex flex-col xl:flex-row xl:pl-[135px] gap-y-12 xl:gap-y-0">
                         <div className="max-w-[345px] xl:pt-8 order-2 xl:order-1 text-center mx-auto xl:text-left xl:mx-0">
                            <h2 className="h2 mb-4">

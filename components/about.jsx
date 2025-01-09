@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { fadeIn } from "../variants";
+import { fadeIn } from "@/variants";
 import { useInView } from "react-intersection-observer";
 import { Button } from "@/components/ui/button";
 import { useMediaQuery } from "react-responsive";

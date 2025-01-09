@@ -1,12 +1,12 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { fadeIn } from "../variants";
+import { fadeIn } from "@/variants";
 
 const Featured = () => {
   return (
     <motion.section
-      className="bg-soft_green-secondary xl:h-[240px] max-w-[1305px] ml-auto xl:-top-[120px] relative rounded-tl-[30px] rounded-bl-[30px] px-[80px] py-[60px]"
+      className="section bg-soft_green-secondary xl:h-[240px] max-w-[1305px] ml-auto xl:-top-[120px] relative rounded-tl-[30px] rounded-bl-[30px] px-[80px] py-[60px] z-0"
       variants={fadeIn("up", 0.2)}
       initial="hidden"
       whileInView={"show"}
