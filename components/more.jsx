@@ -34,8 +34,8 @@ const destinationsData = [
 
 const More = () => {
    const layoutClasses = [
-      "col-span-4 row-span-2", // First card
-      "col-span-4 h-[245px]",  // Second card
+      "col-span-4 row-span-2 lg:h-[710px] min-h-[553px]", // First card
+      "col-span-4",  // Second card
       "col-span-4",            // Third card
       "col-span-8",            // Fourth card
     ];

@@ -36,7 +36,7 @@ const Header = () => {
     <header className="section fixed z-50 top-0 w-full h-[82px]">
       <div className="header w-full h-full subgrid grid col-span-12 items-center rounded-xl px-[40px]">
           <Link href="/" className="col-span-4">
-            <h1 className="text-[82px] font-script text-accent-secondary hover:text-accent">relocate</h1>
+            <h1 className="text-[82px] font-script text-accent-secondary hover:text-accent blend">relocate</h1>
           </Link>
           <div className="col-span-8 col-start-5 self-center place-self-end">
           {!isMobileViewport && (

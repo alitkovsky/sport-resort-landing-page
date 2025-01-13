@@ -54,6 +54,7 @@
 
     --color-white: rgba(255 255 255 / 1);
     --color-black: rgba(0 0 0 / 1);
+    --color-grey: rgba(208 208 208 / 1);
     --color-green: rgba(0 53 49 / 1);
     --color-accent: rgba(12 162 150 / 1);
     --color-accent-secondary: rgba(255 199 0 / 1);
@@ -255,7 +256,7 @@
 
 /* Main navigation */
 
-.nav {
+/* .nav {
 	position: fixed;
 	z-index: 10;
 	left: 0;
@@ -307,24 +308,24 @@
 }
 .mobile-nav--is--open .links a {
   font-size: 20px;
-}
+} */
 
-/* nav.main-nav {
+.main-nav {
   margin-left: auto
 }
-nav.main-nav ul {
+.main-nav ul {
   padding: 0;
   margin: 0
 }
-nav.main-nav ul li {
+.main-nav ul li {
   list-style-type: none;
   display: inline-block;
   margin: 0;
   padding: 0 20px
 }
-nav.main-nav ul li:last-of-type {
+.main-nav ul li:last-of-type {
   padding-right: 0
-} */
+}
 
 .decoration {
   display: inline-block;

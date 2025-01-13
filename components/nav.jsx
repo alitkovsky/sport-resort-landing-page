@@ -65,7 +65,7 @@ const Nav = ({ onNavClick = () => {}, isMobile = false }) => {
                     scroll={false}
                     aria-label={link.name}
                     aria-current={isActive(link.name) ? "true" : "false"}
-                    className={`decoration text-[var(--color-black)] font-circularMedium ${isActive(link.path) ? "active" : ""} ${isMobile ? "pt-4 top-0" : ""}`}
+                    className={`decoration text-[var(--color-accent-secondary)] font-circularMedium ${isActive(link.path) ? "active" : ""} ${isMobile ? "pt-4 top-0" : ""}`}
                   >
                     {link.name}
                   </Link>

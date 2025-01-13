@@ -1,23 +1,28 @@
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTelegram, faWhatsapp, faVk } from "@fortawesome/free-brands-svg-icons";
+import { faInstagram, faXTwitter, faYoutube, faFacebook } from "@fortawesome/free-brands-svg-icons";
 
 const Socials = ({ containerStyles }) => {
   return (
     <ul className={`${containerStyles}`}>
       <li>
          <Link href="/">
-            <FontAwesomeIcon size="xl" icon={faTelegram} />
+            <FontAwesomeIcon size="xl" icon={faInstagram} />
          </Link>
       </li>
       <li>
          <Link href="/">
-            <FontAwesomeIcon size="xl" icon={faWhatsapp} />
+            <FontAwesomeIcon size="xl" icon={faFacebook} />
          </Link>
       </li>
       <li>
          <Link href="/">
-            <FontAwesomeIcon size="xl" icon={faVk} />
+            <FontAwesomeIcon size="xl" icon={faXTwitter} />
+         </Link>
+      </li>
+      <li>
+         <Link href="/">
+            <FontAwesomeIcon size="xl" icon={faYoutube} />
          </Link>
       </li>
     </ul>

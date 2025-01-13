@@ -7,6 +7,67 @@ import Nav from "@/components/nav";
 import Waves from "@/components/waves";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/variants";
+import path from "path";
+
+
+
+const product = [
+  {
+    path: "/",
+    name: "Why Relocate?",
+  },
+  {
+    path: "/",
+    name: "Features",
+  },
+  {
+    path: "/",
+    name: "Omnichannel",
+  },
+  {
+    path: "/",
+    name: "Community",
+  },
+  {
+    path: "/",
+    name: "Webinars",
+  },
+  {
+    path: "/",
+    name: "Marketplace",
+  }
+];
+
+const company = [
+  {
+    path: "/",
+    name: "Team",
+  },
+  {
+    path: "/",
+    name: "About",
+  },
+  {
+    path: "/",
+    name: "Jobs",
+  },
+  {
+    path: "/",
+    name: "Partners",
+  },
+  {
+    path: "/",
+    name: "Press",
+  },
+  {
+    path: "/",
+    name: "Blog",
+  },
+  {
+    path: "/",
+    name: "Newsletter",
+  }
+];
 
 const Footer = () => {
   return (
@@ -30,81 +91,52 @@ const Footer = () => {
             }}
           ></div>
           <div
-            className="flex-1 video-overlay bg-shore bg-no-repeat bg-contain bg-bottom"
+            className="flex-1 absolute bottom-[-10px] w-full video-overlay bg-shore bg-no-repeat bg-cover bg-bottom"
           ></div>
         </div>
       </div>
       <div className="section">
-        <div className="grid-cols-subgrid col-span-12 grid">
-            <div className="col-span-3">
-              <Link href='/'>
-                <Image
-                  src="/footer/logo.svg"
-                  width={80}
-                  height={36}
-                  alt=""
-                  className="mb-2"
-                />
-              </Link>
-              <p className="text-white leading-9">
+        <div className="grid-cols-subgrid col-span-12 grid pb-[40px]">
+            <div className="col-span-4 lg:col-span-5">
+            <h1 className="text-[82px] font-script text-accent-secondary hover:text-accent blend mb-[20px]">relocate</h1>
+              <p className="text-[var(--color-grey)] leading-9 font-circularBook text-[16px]">
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam corrupti neque illum harum pariatur distinctio.
               </p>
             </div>
-            <div className="col-span-3">
-              <div className="flex-1">
-                <h4 className="h4 mb-6">Navigation</h4>
-                <Nav
-                  containerStyles=""
-                  listStyles="flex flex-col gap-y-6 text-lg"
-              />
-              </div>
+            <div className="col-span-3 justify-self-center text-center">
               <div className="flex-1 xl:w-[300px]">
-                <h4 className="h4 mb-6">Contact Us</h4>
-                <ul className="flex flex-col gap-y-6 text-lg">
-                  <li>+12 345 678901</li>
-                  <li>info@stimul-hotel.com</li>
-                  <li>stimul-hotel.com</li>
+                <h4 className="mb-6 font-circularBlack text-[16px] text-[var(--color-grey)]">Product</h4>
+                <ul className="flex flex-col text-[16px] font-circularBook text-[var(--color-grey)]">
+                  {product.map((item, index) => (
+                    <li key={index}>
+                      <Link href={item.path}>
+                        {item.name}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
-            <div className="col-span-3">
-              <div className="flex-1">
-                <h4 className="h4 mb-6">Navigation</h4>
-                <Nav
-                  containerStyles=""
-                  listStyles="flex flex-col gap-y-6 text-lg"
-              />
-              </div>
-              <div className="flex-1 xl:w-[300px]">
-                <h4 className="h4 mb-6">Contact Us</h4>
-                <ul className="flex flex-col gap-y-6 text-lg">
-                  <li>+12 345 678901</li>
-                  <li>info@stimul-hotel.com</li>
-                  <li>stimul-hotel.com</li>
+            <div className="col-span-3 justify-self-center text-center">
+              <div className="flex-1 xl:w-[300px] text-[var(--color-grey)]">
+                <h4 className="mb-6 font-circularBlack text-[16px] text-[var(--color-grey)]">Company</h4>
+                <ul className="flex flex-col text-[16px] font-circularBook text-[var(--color-grey)]">
+                  {company.map((item, index) => (
+                    <li key={index}>
+                      <Link href={item.path}>
+                        {item.name}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
-            <div className="col-span-3">
-              <div className="flex-1">
-                <h4 className="h4 mb-6">Navigation</h4>
-                <Nav
-                  containerStyles=""
-                  listStyles="flex flex-col gap-y-6 text-lg"
-              />
-              </div>
-              <div className="flex-1 xl:w-[300px]">
-                <h4 className="h4 mb-6">Contact Us</h4>
-                <ul className="flex flex-col gap-y-6 text-lg">
-                  <li>+12 345 678901</li>
-                  <li>info@stimul-hotel.com</li>
-                  <li>stimul-hotel.com</li>
-                </ul>
+            <div className="col-span-2 lg:col-span-1 justify-self-center content-center">
+              <div className="flex-1 text-[var(--color-grey)]">
+                <Socials containerStyles="flex flex-col gap-y-[28px]" />
               </div>
             </div>
         </div>
-        <p className="col-span-12 text-white font-semibold">
-            Copyright &copy; 2024. All rights reserved.
-        </p>
       </div>
     </footer>
   )
