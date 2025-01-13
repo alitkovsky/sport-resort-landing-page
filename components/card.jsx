@@ -2,7 +2,7 @@ const Card = ({ cardImg, name, location, layoutClasses }) => {
   return (
     <>
       <div
-        className={`${layoutClasses} group peer w-full rounded-2xl overflow-hidden hover:cursor-pointer group-hover:blur-sm peer-hover:blur-none transition-all duration-700 mx-auto`}
+        className={`${layoutClasses} w-full rounded-2xl overflow-hidden hover:cursor-pointer group-hover:blur-sm peer-hover:blur-none transition-all duration-700 mx-auto`}
         style={{
           backgroundImage: `url(${cardImg})`,
           backgroundSize: "cover",

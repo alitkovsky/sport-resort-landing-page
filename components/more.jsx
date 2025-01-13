@@ -35,9 +35,9 @@ const destinationsData = [
 const More = () => {
    const layoutClasses = [
       "col-span-4 row-span-2", // First card
-      "col-span-4 h-[245px]",            // Second card
+      "col-span-4 h-[245px]",  // Second card
       "col-span-4",            // Third card
-      "col-span-8",           // Fourth card
+      "col-span-8",            // Fourth card
     ];
    return (
       <section className="section">
@@ -84,18 +84,18 @@ const More = () => {
                </Button>
             </motion.div> */}
          </div>
-         <div
-            className="grid-cols-subgrid grid-rows-2 grid col-span-12 row-span-2 gap-[var(--grid--main-gutter)] group"
+         <motion.div
+            className="grid-cols-subgrid grid-rows-2 grid col-span-12 row-span-2 gap-[var(--grid--main-gutter)] bento-hover"
             variants={fadeIn("up", 0.6)}
             initial="hidden"
             whileInView="show"
             viewport={{ once: false, amount: 0.2 }}
          >
             {destinationsData.map((destination, index) => (
-                  <Card key={destination.id} cardImg={destination.image} name={destination.name} location={destination.location} layoutClasses={layoutClasses[index]} />
+                  <Card key={destination.id} cardImg={destination.image} name={destination.name} location={destination.location} layoutClasses={`${layoutClasses[index]} bento-card`} />
                )
             )}
-         </div>
+         </motion.div>
       </section>
   );
 };

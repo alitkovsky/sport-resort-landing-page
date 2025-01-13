@@ -79,14 +79,14 @@ const Find = () => {
             </motion.div> */}
          </div>
          <motion.div
-            className="grid-cols-subgrid grid col-span-12 gap-[var(--grid--main-gutter)] group"
+            className="grid-cols-subgrid grid col-span-12 gap-[var(--grid--main-gutter)] bento-hover"
             variants={fadeIn("up", 0.6)}
             initial="hidden"
             whileInView="show"
             viewport={{ once: false, amount: 0.2 }}
          >
             {hotelData.map((hotel) => (
-                  <Card key={hotel.id} cardImg={hotel.image} name={hotel.name} location={hotel.location} layoutClasses="col-span-6 md:col-span-3 h-[353px] lg:h-[553px]" />
+                  <Card key={hotel.id} cardImg={hotel.image} name={hotel.name} location={hotel.location} layoutClasses="col-span-6 md:col-span-3 h-[353px] lg:h-[553px] bento-card" />
                )
             )}
          </motion.div>

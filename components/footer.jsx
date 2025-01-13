@@ -11,19 +11,32 @@ import { fadeIn } from "@/variants";
 const Footer = () => {
   return (
     <footer className="bg-green w-full overflow-hidden">
-      <div className="bg-shore h-[523px]">
-      <Waves />
+      <div className="h-[523px] w-full relative overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="video-bg"
+        >
+          <source src="/footer/bg-waves.webm" type="video/webm" />
+          Your browser does not support the video tag.
+        </video>
+        <div className="video-overlay flex-col">
+          <div
+            className="flex-1 video-overlay"
+            style={{
+              background: "linear-gradient(180deg, rgba(255,255,255,1) 20%, rgba(255,255,255,0) 60%)",
+            }}
+          ></div>
+          <div
+            className="flex-1 video-overlay bg-shore bg-no-repeat bg-contain bg-bottom"
+          ></div>
+        </div>
       </div>
       <div className="section">
-        <div
-          // variants={fadeIn("up", 0.4)}
-          // initial="hidden"
-          // whileInView="show"
-          // viewport={{ once: false, amount: 0 }}
-          className="grid-cols-subgrid col-span-12"
-        >
-          <div className="flex flex-col xl:flex-row rounded-xl min-h-[394px]">
-            <div className="xl:w-[470px] mb-6 xl:mb-0">
+        <div className="grid-cols-subgrid col-span-12 grid">
+            <div className="col-span-3">
               <Link href='/'>
                 <Image
                   src="/footer/logo.svg"
@@ -37,7 +50,7 @@ const Footer = () => {
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam corrupti neque illum harum pariatur distinctio.
               </p>
             </div>
-            <div className="flex xl:gap-x-16 xl:ml-32">
+            <div className="col-span-3">
               <div className="flex-1">
                 <h4 className="h4 mb-6">Navigation</h4>
                 <Nav
@@ -54,16 +67,44 @@ const Footer = () => {
                 </ul>
               </div>
             </div>
-          </div>
+            <div className="col-span-3">
+              <div className="flex-1">
+                <h4 className="h4 mb-6">Navigation</h4>
+                <Nav
+                  containerStyles=""
+                  listStyles="flex flex-col gap-y-6 text-lg"
+              />
+              </div>
+              <div className="flex-1 xl:w-[300px]">
+                <h4 className="h4 mb-6">Contact Us</h4>
+                <ul className="flex flex-col gap-y-6 text-lg">
+                  <li>+12 345 678901</li>
+                  <li>info@stimul-hotel.com</li>
+                  <li>stimul-hotel.com</li>
+                </ul>
+              </div>
+            </div>
+            <div className="col-span-3">
+              <div className="flex-1">
+                <h4 className="h4 mb-6">Navigation</h4>
+                <Nav
+                  containerStyles=""
+                  listStyles="flex flex-col gap-y-6 text-lg"
+              />
+              </div>
+              <div className="flex-1 xl:w-[300px]">
+                <h4 className="h4 mb-6">Contact Us</h4>
+                <ul className="flex flex-col gap-y-6 text-lg">
+                  <li>+12 345 678901</li>
+                  <li>info@stimul-hotel.com</li>
+                  <li>stimul-hotel.com</li>
+                </ul>
+              </div>
+            </div>
         </div>
-        <div className="grid-cols-subgrid col-span-12 grid py-12">
-          <p className="col-span-6 text-white font-semibold">
+        <p className="col-span-12 text-white font-semibold">
             Copyright &copy; 2024. All rights reserved.
-          </p>
-          <Socials
-            containerStyles="col-span-6 flex gap-x-4 text-white justify-self-end xl:mx-0"
-          />
-        </div>
+        </p>
       </div>
     </footer>
   )

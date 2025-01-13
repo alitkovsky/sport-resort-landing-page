@@ -120,8 +120,7 @@ module.exports = {
   	backgroundImage: {
 		main: "url(/hero/main.png)",
   		hero: "url(/hero/bg-1.png)",
-  		hero2: "url(/hero/bg-1.jpg)",
-		shore: "url(/footer/shore.png)",
+		shore: "url(/footer/shore_path.svg)",
   	}
   },
   plugins: [require("tailwindcss-animate")],
